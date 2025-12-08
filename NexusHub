@@ -1,0 +1,252 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local AdminUiV3 = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UIGradient = Instance.new("UIGradient")
+local Secondaryframe = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local respawn = Instance.new("ImageButton")
+local UICorner_3 = Instance.new("UICorner")
+local UIname = Instance.new("TextLabel")
+local credits = Instance.new("TextLabel")
+local current_time = Instance.new("TextLabel")
+
+--Properties:
+
+AdminUiV3.Name = "AdminUiV3"
+AdminUiV3.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+AdminUiV3.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = AdminUiV3
+MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.229657352, 0, 0.125720873, 0)
+MainFrame.Size = UDim2.new(0, 707, 0, 453)
+
+UICorner.Parent = MainFrame
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(36, 36, 36))}
+UIGradient.Rotation = 90
+UIGradient.Parent = MainFrame
+
+Secondaryframe.Name = "Secondaryframe"
+Secondaryframe.Parent = MainFrame
+Secondaryframe.BackgroundColor3 = Color3.fromRGB(57, 57, 57)
+Secondaryframe.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Secondaryframe.BorderSizePixel = 0
+Secondaryframe.Position = UDim2.new(0.0223480184, 0, 0.127892226, 0)
+Secondaryframe.Size = UDim2.new(0, 672, 0, 385)
+
+UICorner_2.Parent = Secondaryframe
+
+respawn.Name = "respawn"
+respawn.Parent = Secondaryframe
+respawn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+respawn.BackgroundTransparency = 1.000
+respawn.BorderColor3 = Color3.fromRGB(0, 0, 0)
+respawn.BorderSizePixel = 0
+respawn.Position = UDim2.new(0.0124869924, 0, 0.0254545454, 0)
+respawn.Size = UDim2.new(0, 74, 0, 78)
+respawn.Image = "rbxassetid://9483381623"
+
+UICorner_3.Parent = respawn
+
+UIname.Name = "UIname"
+UIname.Parent = MainFrame
+UIname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UIname.BackgroundTransparency = 1.000
+UIname.BorderColor3 = Color3.fromRGB(0, 0, 0)
+UIname.BorderSizePixel = 0
+UIname.Position = UDim2.new(0.290098935, 0, 0.013888889, 0)
+UIname.Size = UDim2.new(0, 296, 0, 35)
+UIname.Font = Enum.Font.Michroma
+UIname.Text = "N  e  x  u  s       U  I"
+UIname.TextColor3 = Color3.fromRGB(255, 255, 255)
+UIname.TextScaled = true
+UIname.TextSize = 14.000
+UIname.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+UIname.TextWrapped = true
+
+credits.Name = "credits"
+credits.Parent = MainFrame
+credits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+credits.BackgroundTransparency = 1.000
+credits.BorderColor3 = Color3.fromRGB(0, 0, 0)
+credits.BorderSizePixel = 0
+credits.Position = UDim2.new(0.674257338, 0, 0.0524691343, 0)
+credits.Size = UDim2.new(0, 296, 0, 35)
+credits.Font = Enum.Font.Michroma
+credits.Text = "Made by Nexus_idkloll"
+credits.TextColor3 = Color3.fromRGB(255, 255, 255)
+credits.TextSize = 14.000
+credits.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+credits.TextWrapped = true
+
+current_time.Name = "current_time"
+current_time.Parent = MainFrame
+current_time.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+current_time.BackgroundTransparency = 1.000
+current_time.BorderColor3 = Color3.fromRGB(0, 0, 0)
+current_time.BorderSizePixel = 0
+current_time.Position = UDim2.new(0.023762377, 0, 0.013888889, 0)
+current_time.Size = UDim2.new(0, 161, 0, 35)
+current_time.Font = Enum.Font.SourceSans
+current_time.Text = "12:00"
+current_time.TextColor3 = Color3.fromRGB(255, 255, 255)
+current_time.TextScaled = true
+current_time.TextSize = 14.000
+current_time.TextWrapped = true
+
+-- Scripts:
+
+local function UIYJ_fake_script() -- respawn.antistuck 
+	local script = Instance.new('LocalScript', respawn)
+
+	local button = script.Parent
+	local Players = game:GetService("Players")
+	local Workspace = game:GetService("Workspace")
+	
+	local function getNearestSpawn(character)
+	    local spawnpoints = {}
+	    for _, instance in Workspace:GetChildren() do
+	        if instance:IsA("SpawnLocation") then
+	            table.insert(spawnpoints, instance)
+	        end
+	    end
+	
+	    if #spawnpoints == 0 then
+	        return nil
+	    end
+	
+	    local charPivot = character:GetPivot().Position
+	    local nearestSpawn = spawnpoints[1]
+	    local minDist = (charPivot - nearestSpawn:GetPivot().Position).Magnitude
+	
+	    for i = 2, #spawnpoints do
+	        local spawn = spawnpoints[i]
+	        local dist = (charPivot - spawn:GetPivot().Position).Magnitude
+	        if dist < minDist then
+	            minDist = dist
+	            nearestSpawn = spawn
+	        end
+	    end
+	
+	    return nearestSpawn
+	end
+	
+	button.MouseButton1Click:Connect(function()
+	    local player = Players.LocalPlayer
+	    local character = player.Character or player.CharacterAdded:Wait()
+	    local nearestSpawn = getNearestSpawn(character)
+	    if nearestSpawn then
+	        local spawnCFrame = nearestSpawn:GetPivot()
+	        local aboveCFrame = CFrame.new(spawnCFrame.Position + Vector3.new(0, 5, 0))
+	        character:PivotTo(aboveCFrame)
+	    end
+	end)
+	
+	
+end
+coroutine.wrap(UIYJ_fake_script)()
+local function LEVHJLG_fake_script() -- current_time.timescript 
+	local script = Instance.new('LocalScript', current_time)
+
+	local currentTimeLabel = script.Parent
+	
+	local function updateTime()
+	    while true do
+	        local t = os.date("*t")
+	        local hour = t.hour
+	        local minute = t.min
+	        local second = t.sec
+	
+	        local ampm = "AM"
+	        if hour >= 12 then
+	            ampm = "PM"
+	        end
+	        local displayHour = hour % 12
+	        if displayHour == 0 then
+	            displayHour = 12
+	        end
+	
+	        local timeString = string.format("%02d:%02d:%02d %s", displayHour, minute, second, ampm)
+	        currentTimeLabel.Text = timeString
+	
+	        task.wait(1)
+	    end
+	end
+	
+	updateTime()
+	
+	
+end
+coroutine.wrap(LEVHJLG_fake_script)()
+local function EQJPNO_fake_script() -- MainFrame.dragdelay 
+	local script = Instance.new('LocalScript', MainFrame)
+
+	local frame = script.Parent
+	local UserInputService = game:GetService("UserInputService")
+	local TweenService = game:GetService("TweenService")
+	
+	local dragging = false
+	local dragStart = nil
+	local startPos = nil
+	local dragDelayActive = false
+	local dragTween = nil
+	
+	local function update(input)
+	    if not dragging then return end
+	    local delta = input.Position - dragStart
+	    local targetPos = UDim2.new(
+	        startPos.X.Scale,
+	        startPos.X.Offset + delta.X,
+	        startPos.Y.Scale,
+	        startPos.Y.Offset + delta.Y
+	    )
+	    if dragTween then
+	        dragTween:Cancel()
+	    end
+	    dragTween = TweenService:Create(frame, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = targetPos})
+	    dragTween:Play()
+	end
+	
+	frame.InputBegan:Connect(function(input)
+	    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+	        if not dragging and not dragDelayActive then
+	            dragDelayActive = true
+	            dragStart = input.Position
+	            startPos = frame.Position
+	            -- Wait for 0.5 seconds before starting drag
+	            task.wait(0.5)
+	            dragging = true
+	            dragDelayActive = false
+	        end
+	    end
+	end)
+	
+	frame.InputEnded:Connect(function(input)
+	    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+	        dragging = false
+	        dragDelayActive = false
+	        if dragTween then
+	            dragTween:Cancel()
+	            dragTween = nil
+	        end
+	    end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+	    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+	        update(input)
+	    end
+	end)
+	
+	
+end
+coroutine.wrap(EQJPNO_fake_script)()
