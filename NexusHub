@@ -15,6 +15,8 @@ local fly = Instance.new("ImageButton")
 local UICorner_4 = Instance.new("UICorner")
 local esp = Instance.new("ImageButton")
 local UICorner_5 = Instance.new("UICorner")
+local noclip = Instance.new("ImageButton")
+local UICorner_6 = Instance.new("UICorner")
 local UIname = Instance.new("TextLabel")
 local credits = Instance.new("TextLabel")
 local current_time = Instance.new("TextLabel")
@@ -87,6 +89,18 @@ esp.Image = "rbxassetid://12959581346"
 
 UICorner_5.Parent = esp
 
+noclip.Name = "noclip"
+noclip.Parent = Secondaryframe
+noclip.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+noclip.BackgroundTransparency = 1.000
+noclip.BorderColor3 = Color3.fromRGB(0, 0, 0)
+noclip.BorderSizePixel = 0
+noclip.Position = UDim2.new(0.391951323, 0, 0.0228571501, 0)
+noclip.Size = UDim2.new(0, 74, 0, 78)
+noclip.Image = "rbxassetid://9525535512"
+
+UICorner_6.Parent = noclip
+
 UIname.Name = "UIname"
 UIname.Parent = MainFrame
 UIname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -152,7 +166,7 @@ tip.TextWrapped = true
 
 -- Scripts:
 
-local function ONUOA_fake_script() -- respawn.antistuck 
+local function CVJQJT_fake_script() -- respawn.antistuck 
 	local script = Instance.new('LocalScript', respawn)
 
 	local button = script.Parent
@@ -200,8 +214,8 @@ local function ONUOA_fake_script() -- respawn.antistuck
 	
 	
 end
-coroutine.wrap(ONUOA_fake_script)()
-local function PVEFP_fake_script() -- fly.FlyButtonScript 
+coroutine.wrap(CVJQJT_fake_script)()
+local function FUKACB_fake_script() -- fly.FlyButtonScript 
 	local script = Instance.new('LocalScript', fly)
 
 	local button = script.Parent
@@ -318,8 +332,8 @@ local function PVEFP_fake_script() -- fly.FlyButtonScript
 	
 	
 end
-coroutine.wrap(PVEFP_fake_script)()
-local function KWPGYD_fake_script() -- esp.espscript 
+coroutine.wrap(FUKACB_fake_script)()
+local function FGKV_fake_script() -- esp.espscript 
 	local script = Instance.new('LocalScript', esp)
 
 	local Players = game:GetService("Players")
@@ -377,8 +391,42 @@ local function KWPGYD_fake_script() -- esp.espscript
 	
 	
 end
-coroutine.wrap(KWPGYD_fake_script)()
-local function TEGFCL_fake_script() -- current_time.timescript 
+coroutine.wrap(FGKV_fake_script)()
+local function XKNPP_fake_script() -- noclip.noclip.NoclipButtonScript 
+	local script = Instance.new('LocalScript', noclip)
+
+	local button = script.Parent
+	local Players = game:GetService("Players")
+	local noclipEnabled = false
+	
+	-- Helper function to set CanCollide for all parts in character
+	local function setNoclip(character, enabled)
+	    for _, part in character:GetChildren() do
+	        if part:IsA("BasePart") then
+	            part.CanCollide = not enabled
+	        end
+	    end
+	end
+	
+	-- Toggle noclip state
+	local function toggleNoclip()
+	    local player = Players.LocalPlayer
+	    local character = player.Character or player.CharacterAdded:Wait()
+	    noclipEnabled = not noclipEnabled
+	    setNoclip(character, noclipEnabled)
+	end
+	
+	-- Reapply correct CanCollide on respawn
+	Players.LocalPlayer.CharacterAdded:Connect(function(character)
+	    setNoclip(character, noclipEnabled)
+	end)
+	
+	button.MouseButton1Click:Connect(toggleNoclip)
+	
+	
+end
+coroutine.wrap(XKNPP_fake_script)()
+local function JTJOXPM_fake_script() -- current_time.timescript 
 	local script = Instance.new('LocalScript', current_time)
 
 	local currentTimeLabel = script.Parent
@@ -410,8 +458,8 @@ local function TEGFCL_fake_script() -- current_time.timescript
 	
 	
 end
-coroutine.wrap(TEGFCL_fake_script)()
-local function FCGKK_fake_script() -- MainFrame.dragdelay 
+coroutine.wrap(JTJOXPM_fake_script)()
+local function HSZHHYP_fake_script() -- MainFrame.dragdelay 
 	local script = Instance.new('LocalScript', MainFrame)
 
 	local frame = script.Parent
@@ -473,8 +521,8 @@ local function FCGKK_fake_script() -- MainFrame.dragdelay
 	
 	
 end
-coroutine.wrap(FCGKK_fake_script)()
-local function PIFKF_fake_script() -- MainFrame.toggle 
+coroutine.wrap(HSZHHYP_fake_script)()
+local function WZENJK_fake_script() -- MainFrame.toggle 
 	local script = Instance.new('LocalScript', MainFrame)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -489,8 +537,8 @@ local function PIFKF_fake_script() -- MainFrame.toggle
 	
 	
 end
-coroutine.wrap(PIFKF_fake_script)()
-local function TAHJX_fake_script() -- tip.tipscript 
+coroutine.wrap(WZENJK_fake_script)()
+local function XKLT_fake_script() -- tip.tipscript 
 	local script = Instance.new('LocalScript', tip)
 
 	local tip = script.Parent
@@ -500,4 +548,4 @@ local function TAHJX_fake_script() -- tip.tipscript
 	
 	
 end
-coroutine.wrap(TAHJX_fake_script)()
+coroutine.wrap(XKLT_fake_script)()
