@@ -18,6 +18,7 @@ local UICorner_5 = Instance.new("UICorner")
 local UIname = Instance.new("TextLabel")
 local credits = Instance.new("TextLabel")
 local current_time = Instance.new("TextLabel")
+local tip = Instance.new("TextLabel")
 
 --Properties:
 
@@ -32,6 +33,7 @@ MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MainFrame.BorderSizePixel = 0
 MainFrame.Position = UDim2.new(0.229657352, 0, 0.125720873, 0)
 MainFrame.Size = UDim2.new(0, 707, 0, 453)
+MainFrame.Visible = false
 
 UICorner.Parent = MainFrame
 
@@ -91,10 +93,10 @@ UIname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 UIname.BackgroundTransparency = 1.000
 UIname.BorderColor3 = Color3.fromRGB(0, 0, 0)
 UIname.BorderSizePixel = 0
-UIname.Position = UDim2.new(0.290098935, 0, 0.013888889, 0)
-UIname.Size = UDim2.new(0, 296, 0, 35)
+UIname.Position = UDim2.new(0.267468065, 0, 0.0138888666, 0)
+UIname.Size = UDim2.new(0, 324, 0, 35)
 UIname.Font = Enum.Font.Michroma
-UIname.Text = "N  e  x  u  s       U  I"
+UIname.Text = "N  e  x  u  s       H  u  b"
 UIname.TextColor3 = Color3.fromRGB(255, 255, 255)
 UIname.TextScaled = true
 UIname.TextSize = 14.000
@@ -107,10 +109,10 @@ credits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 credits.BackgroundTransparency = 1.000
 credits.BorderColor3 = Color3.fromRGB(0, 0, 0)
 credits.BorderSizePixel = 0
-credits.Position = UDim2.new(0.674257338, 0, 0.0524691343, 0)
+credits.Position = UDim2.new(0.627581179, 0, 0.0701291934, 0)
 credits.Size = UDim2.new(0, 296, 0, 35)
 credits.Font = Enum.Font.Michroma
-credits.Text = "Made by Nexus_idkloll"
+credits.Text = "Made by NexusHubTeam"
 credits.TextColor3 = Color3.fromRGB(255, 255, 255)
 credits.TextSize = 14.000
 credits.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
@@ -131,9 +133,26 @@ current_time.TextScaled = true
 current_time.TextSize = 14.000
 current_time.TextWrapped = true
 
+tip.Name = "tip"
+tip.Parent = AdminUiV3
+tip.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tip.BackgroundTransparency = 1.000
+tip.BorderColor3 = Color3.fromRGB(0, 0, 0)
+tip.BorderSizePixel = 0
+tip.Position = UDim2.new(0.060079053, 0, 0.404702961, 0)
+tip.Size = UDim2.new(0, 1132, 0, 50)
+tip.Font = Enum.Font.SourceSans
+tip.Text = "Press K to close/open the ui"
+tip.TextColor3 = Color3.fromRGB(0, 0, 0)
+tip.TextScaled = true
+tip.TextSize = 14.000
+tip.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+tip.TextStrokeTransparency = 0.000
+tip.TextWrapped = true
+
 -- Scripts:
 
-local function WWGJG_fake_script() -- respawn.antistuck 
+local function ONUOA_fake_script() -- respawn.antistuck 
 	local script = Instance.new('LocalScript', respawn)
 
 	local button = script.Parent
@@ -181,8 +200,8 @@ local function WWGJG_fake_script() -- respawn.antistuck
 	
 	
 end
-coroutine.wrap(WWGJG_fake_script)()
-local function CBXMKX_fake_script() -- fly.FlyButtonScript 
+coroutine.wrap(ONUOA_fake_script)()
+local function PVEFP_fake_script() -- fly.FlyButtonScript 
 	local script = Instance.new('LocalScript', fly)
 
 	local button = script.Parent
@@ -299,8 +318,8 @@ local function CBXMKX_fake_script() -- fly.FlyButtonScript
 	
 	
 end
-coroutine.wrap(CBXMKX_fake_script)()
-local function QCUBY_fake_script() -- esp.espscript 
+coroutine.wrap(PVEFP_fake_script)()
+local function KWPGYD_fake_script() -- esp.espscript 
 	local script = Instance.new('LocalScript', esp)
 
 	local Players = game:GetService("Players")
@@ -358,8 +377,8 @@ local function QCUBY_fake_script() -- esp.espscript
 	
 	
 end
-coroutine.wrap(QCUBY_fake_script)()
-local function JWJXQU_fake_script() -- current_time.timescript 
+coroutine.wrap(KWPGYD_fake_script)()
+local function TEGFCL_fake_script() -- current_time.timescript 
 	local script = Instance.new('LocalScript', current_time)
 
 	local currentTimeLabel = script.Parent
@@ -391,8 +410,8 @@ local function JWJXQU_fake_script() -- current_time.timescript
 	
 	
 end
-coroutine.wrap(JWJXQU_fake_script)()
-local function EQZG_fake_script() -- MainFrame.dragdelay 
+coroutine.wrap(TEGFCL_fake_script)()
+local function FCGKK_fake_script() -- MainFrame.dragdelay 
 	local script = Instance.new('LocalScript', MainFrame)
 
 	local frame = script.Parent
@@ -454,4 +473,31 @@ local function EQZG_fake_script() -- MainFrame.dragdelay
 	
 	
 end
-coroutine.wrap(EQZG_fake_script)()
+coroutine.wrap(FCGKK_fake_script)()
+local function PIFKF_fake_script() -- MainFrame.toggle 
+	local script = Instance.new('LocalScript', MainFrame)
+
+	local UserInputService = game:GetService("UserInputService")
+	local mainFrame = script.Parent
+	
+	UserInputService.InputBegan:Connect(function(input, gameProcessed)
+	    if gameProcessed then return end
+	    if input.KeyCode == Enum.KeyCode.K then
+	        mainFrame.Visible = not mainFrame.Visible
+	    end
+	end)
+	
+	
+end
+coroutine.wrap(PIFKF_fake_script)()
+local function TAHJX_fake_script() -- tip.tipscript 
+	local script = Instance.new('LocalScript', tip)
+
+	local tip = script.Parent
+	tip.Visible = true
+	task.wait(5)
+	tip.Visible = false
+	
+	
+end
+coroutine.wrap(TAHJX_fake_script)()
