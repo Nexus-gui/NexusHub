@@ -11,6 +11,10 @@ local Secondaryframe = Instance.new("Frame")
 local UICorner_2 = Instance.new("UICorner")
 local respawn = Instance.new("ImageButton")
 local UICorner_3 = Instance.new("UICorner")
+local fly = Instance.new("ImageButton")
+local UICorner_4 = Instance.new("UICorner")
+local esp = Instance.new("ImageButton")
+local UICorner_5 = Instance.new("UICorner")
 local UIname = Instance.new("TextLabel")
 local credits = Instance.new("TextLabel")
 local current_time = Instance.new("TextLabel")
@@ -31,13 +35,13 @@ MainFrame.Size = UDim2.new(0, 707, 0, 453)
 
 UICorner.Parent = MainFrame
 
-UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(36, 36, 36))}
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(36, 36, 36)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))}
 UIGradient.Rotation = 90
 UIGradient.Parent = MainFrame
 
 Secondaryframe.Name = "Secondaryframe"
 Secondaryframe.Parent = MainFrame
-Secondaryframe.BackgroundColor3 = Color3.fromRGB(57, 57, 57)
+Secondaryframe.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Secondaryframe.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Secondaryframe.BorderSizePixel = 0
 Secondaryframe.Position = UDim2.new(0.0223480184, 0, 0.127892226, 0)
@@ -56,6 +60,30 @@ respawn.Size = UDim2.new(0, 74, 0, 78)
 respawn.Image = "rbxassetid://9483381623"
 
 UICorner_3.Parent = respawn
+
+fly.Name = "fly"
+fly.Parent = Secondaryframe
+fly.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+fly.BackgroundTransparency = 1.000
+fly.BorderColor3 = Color3.fromRGB(0, 0, 0)
+fly.BorderSizePixel = 0
+fly.Position = UDim2.new(0.140463188, 0, 0.0254545528, 0)
+fly.Size = UDim2.new(0, 74, 0, 78)
+fly.Image = "rbxassetid://4592292717"
+
+UICorner_4.Parent = fly
+
+esp.Name = "esp"
+esp.Parent = Secondaryframe
+esp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+esp.BackgroundTransparency = 1.000
+esp.BorderColor3 = Color3.fromRGB(0, 0, 0)
+esp.BorderSizePixel = 0
+esp.Position = UDim2.new(0.266951323, 0, 0.0254545528, 0)
+esp.Size = UDim2.new(0, 74, 0, 78)
+esp.Image = "rbxassetid://12959581346"
+
+UICorner_5.Parent = esp
 
 UIname.Name = "UIname"
 UIname.Parent = MainFrame
@@ -105,7 +133,7 @@ current_time.TextWrapped = true
 
 -- Scripts:
 
-local function UIYJ_fake_script() -- respawn.antistuck 
+local function WWGJG_fake_script() -- respawn.antistuck 
 	local script = Instance.new('LocalScript', respawn)
 
 	local button = script.Parent
@@ -153,8 +181,185 @@ local function UIYJ_fake_script() -- respawn.antistuck
 	
 	
 end
-coroutine.wrap(UIYJ_fake_script)()
-local function LEVHJLG_fake_script() -- current_time.timescript 
+coroutine.wrap(WWGJG_fake_script)()
+local function CBXMKX_fake_script() -- fly.FlyButtonScript 
+	local script = Instance.new('LocalScript', fly)
+
+	local button = script.Parent
+	local Players = game:GetService("Players")
+	local UserInputService = game:GetService("UserInputService")
+	local flying = false
+	local speed = 50 -- studs per second
+	local moveDirection = Vector3.new(0, 0, 0)
+	local bodyVelocity = nil
+	
+	local function setGravity(enabled)
+	    local player = Players.LocalPlayer
+	    local character = player.Character
+	    if character then
+	        local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+	        if humanoidRootPart then
+	            humanoidRootPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+	            humanoidRootPart.CanCollide = not enabled
+	        end
+	        local humanoid = character:FindFirstChildOfClass("Humanoid")
+	        if humanoid then
+	            humanoid.PlatformStand = enabled
+	        end
+	    end
+	end
+	
+	local function startFlying()
+	    setGravity(true)
+	    local player = Players.LocalPlayer
+	    local character = player.Character
+	    if character then
+	        local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+	        if humanoidRootPart then
+	            bodyVelocity = Instance.new("BodyVelocity")
+	            bodyVelocity.MaxForce = Vector3.new(1e5, 1e5, 1e5)
+	            bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+	            bodyVelocity.Parent = humanoidRootPart
+	        end
+	    end
+	end
+	
+	local function stopFlying()
+	    setGravity(false)
+	    local player = Players.LocalPlayer
+	    local character = player.Character
+	    if character then
+	        local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+	        if humanoidRootPart and bodyVelocity then
+	            bodyVelocity:Destroy()
+	            bodyVelocity = nil
+	        end
+	    end
+	    moveDirection = Vector3.new(0, 0, 0)
+	end
+	
+	button.MouseButton1Click:Connect(function()
+	    flying = not flying
+	    if flying then
+	        startFlying()
+	    else
+	        stopFlying()
+	    end
+	end)
+	
+	UserInputService.InputBegan:Connect(function(input, processed)
+	    if not flying or processed then return end
+	    if input.KeyCode == Enum.KeyCode.W then
+	        moveDirection = Vector3.new(moveDirection.X, moveDirection.Y, 1) -- FIXED: W is forward
+	    elseif input.KeyCode == Enum.KeyCode.S then
+	        moveDirection = Vector3.new(moveDirection.X, moveDirection.Y, -1) -- FIXED: S is backward
+	    elseif input.KeyCode == Enum.KeyCode.A then
+	        moveDirection = Vector3.new(-1, moveDirection.Y, moveDirection.Z)
+	    elseif input.KeyCode == Enum.KeyCode.D then
+	        moveDirection = Vector3.new(1, moveDirection.Y, moveDirection.Z)
+	    elseif input.KeyCode == Enum.KeyCode.Space then
+	        moveDirection = Vector3.new(moveDirection.X, 1, moveDirection.Z)
+	    elseif input.KeyCode == Enum.KeyCode.LeftShift then
+	        moveDirection = Vector3.new(moveDirection.X, -1, moveDirection.Z)
+	    end
+	end)
+	
+	UserInputService.InputEnded:Connect(function(input, processed)
+	    if not flying then return end
+	    if input.KeyCode == Enum.KeyCode.W or input.KeyCode == Enum.KeyCode.S then
+	        moveDirection = Vector3.new(moveDirection.X, moveDirection.Y, 0)
+	    elseif input.KeyCode == Enum.KeyCode.A or input.KeyCode == Enum.KeyCode.D then
+	        moveDirection = Vector3.new(0, moveDirection.Y, moveDirection.Z)
+	    elseif input.KeyCode == Enum.KeyCode.Space or input.KeyCode == Enum.KeyCode.LeftShift then
+	        moveDirection = Vector3.new(moveDirection.X, 0, moveDirection.Z)
+	    end
+	end)
+	
+	game:GetService("RunService").RenderStepped:Connect(function()
+	    if flying and bodyVelocity then
+	        local player = Players.LocalPlayer
+	        local character = player.Character
+	        if character then
+	            local camera = workspace.CurrentCamera
+	            local camCF = camera.CFrame
+	            local forward = camCF.LookVector
+	            local right = camCF.RightVector
+	            local up = Vector3.new(0, 1, 0)
+	            local velocity = Vector3.new(0, 0, 0)
+	            velocity = velocity + forward * moveDirection.Z
+	            velocity = velocity + right * moveDirection.X
+	            velocity = velocity + up * moveDirection.Y
+	            if velocity.Magnitude > 0 then
+	                velocity = velocity.Unit * speed
+	            end
+	            bodyVelocity.Velocity = velocity
+	        end
+	    end
+	end)
+	
+	
+end
+coroutine.wrap(CBXMKX_fake_script)()
+local function QCUBY_fake_script() -- esp.espscript 
+	local script = Instance.new('LocalScript', esp)
+
+	local Players = game:GetService("Players")
+	local Workspace = game:GetService("Workspace")
+	local imageButton = script.Parent
+	
+	-- Highlight property settings
+	local FILL_TRANSPARENCY = 0
+	local FILL_COLOR = Color3.new(0, 0, 0) -- Black
+	local OUTLINE_COLOR = Color3.new(1, 1, 1) -- White
+	
+	-- Track highlight state
+	local isHighlighted = false
+	
+	-- Helper function to highlight all players
+	local function highlightAllPlayers()
+	    for _, player in Players:GetPlayers() do
+	        local character = Workspace:FindFirstChild(player.Name)
+	        if character and not character:FindFirstChild("Highlight") then
+	            local highlight = Instance.new("Highlight")
+	            highlight.Name = "Highlight"
+	            highlight.FillTransparency = FILL_TRANSPARENCY
+	            highlight.FillColor = FILL_COLOR
+	            highlight.OutlineColor = OUTLINE_COLOR
+	            highlight.Parent = character
+	        end
+	    end
+	end
+	
+	-- Helper function to remove highlight from all players
+	local function removeHighlightFromAllPlayers()
+	    for _, player in Players:GetPlayers() do
+	        local character = Workspace:FindFirstChild(player.Name)
+	        if character then
+	            local highlight = character:FindFirstChild("Highlight")
+	            if highlight then
+	                highlight:Destroy()
+	            end
+	        end
+	    end
+	end
+	
+	local function setHighlightState(state)
+	    if state then
+	        highlightAllPlayers()
+	    else
+	        removeHighlightFromAllPlayers()
+	    end
+	end
+	
+	imageButton.MouseButton1Click:Connect(function()
+	    isHighlighted = not isHighlighted
+	    setHighlightState(isHighlighted)
+	end)
+	
+	
+end
+coroutine.wrap(QCUBY_fake_script)()
+local function JWJXQU_fake_script() -- current_time.timescript 
 	local script = Instance.new('LocalScript', current_time)
 
 	local currentTimeLabel = script.Parent
@@ -186,8 +391,8 @@ local function LEVHJLG_fake_script() -- current_time.timescript
 	
 	
 end
-coroutine.wrap(LEVHJLG_fake_script)()
-local function EQJPNO_fake_script() -- MainFrame.dragdelay 
+coroutine.wrap(JWJXQU_fake_script)()
+local function EQZG_fake_script() -- MainFrame.dragdelay 
 	local script = Instance.new('LocalScript', MainFrame)
 
 	local frame = script.Parent
@@ -249,4 +454,4 @@ local function EQJPNO_fake_script() -- MainFrame.dragdelay
 	
 	
 end
-coroutine.wrap(EQJPNO_fake_script)()
+coroutine.wrap(EQZG_fake_script)()
