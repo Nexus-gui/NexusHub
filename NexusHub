@@ -1,7 +1,8 @@
--- NexusHub
+-- Nexus Hub 
+-- By Nexus Hub Team
 -- Version: 0.2
 
--- Instances:
+-- Code:
 
 local AdminUiV3 = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
@@ -35,9 +36,14 @@ local UICorner_11 = Instance.new("UICorner")
 local MusicPlayerLabel = Instance.new("Frame")
 local UICorner_12 = Instance.new("UICorner")
 local TextLabel = Instance.new("TextLabel")
-local ScrollingFrame = Instance.new("ScrollingFrame")
-local Badapple = Instance.new("TextButton")
+local entersoundid = Instance.new("TextBox")
 local UICorner1 = Instance.new("UICorner")
+local Musicvalidater = Instance.new("Frame")
+local UICorner2 = Instance.new("UICorner")
+local PlayMusic = Instance.new("TextButton")
+local UICorner2_2 = Instance.new("UICorner")
+local StopMusic = Instance.new("TextButton")
+local UICorner2_3 = Instance.new("UICorner")
 
 --Properties:
 
@@ -245,8 +251,8 @@ MusicList.Parent = AdminUiV3
 MusicList.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 MusicList.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MusicList.BorderSizePixel = 0
-MusicList.Position = UDim2.new(0.134835422, 0, 0.203551963, 0)
-MusicList.Size = UDim2.new(0, 435, 0, 505)
+MusicList.Position = UDim2.new(0.134835437, 0, 0.203551963, 0)
+MusicList.Size = UDim2.new(0, 552, 0, 199)
 MusicList.Visible = false
 
 UICorner_11.Parent = MusicList
@@ -256,8 +262,8 @@ MusicPlayerLabel.Parent = MusicList
 MusicPlayerLabel.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 MusicPlayerLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MusicPlayerLabel.BorderSizePixel = 0
-MusicPlayerLabel.Position = UDim2.new(-0.00079668418, 0, -0.00040851254, 0)
-MusicPlayerLabel.Size = UDim2.new(0, 435, 0, 99)
+MusicPlayerLabel.Position = UDim2.new(-0.000796663575, 0, -0.000408536813, 0)
+MusicPlayerLabel.Size = UDim2.new(0, 552, 0, 49)
 
 UICorner_12.Parent = MusicPlayerLabel
 
@@ -266,7 +272,8 @@ TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.LayoutOrder = 1
-TextLabel.Size = UDim2.new(0, 435, 0, 99)
+TextLabel.Position = UDim2.new(0, 0, -0.0684394091, 0)
+TextLabel.Size = UDim2.new(0, 552, 0, 54)
 TextLabel.Font = Enum.Font.SourceSans
 TextLabel.Text = "Music Player (WIP)"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -274,35 +281,75 @@ TextLabel.TextScaled = true
 TextLabel.TextSize = 14.000
 TextLabel.TextWrapped = true
 
-ScrollingFrame.Parent = MusicList
-ScrollingFrame.Active = true
-ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ScrollingFrame.BackgroundTransparency = 1.000
-ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ScrollingFrame.BorderSizePixel = 0
-ScrollingFrame.Position = UDim2.new(-0.00229885057, 0, 0.194059402, 0)
-ScrollingFrame.Size = UDim2.new(0, 436, 0, 407)
-
-Badapple.Name = "Badapple"
-Badapple.Parent = ScrollingFrame
-Badapple.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
-Badapple.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Badapple.BorderSizePixel = 0
-Badapple.Position = UDim2.new(0.0756880715, 0, 0.0188118815, 0)
-Badapple.Size = UDim2.new(0, 355, 0, 69)
-Badapple.Font = Enum.Font.SourceSans
-Badapple.Text = "Bad Apple"
-Badapple.TextColor3 = Color3.fromRGB(255, 255, 255)
-Badapple.TextScaled = true
-Badapple.TextSize = 14.000
-Badapple.TextWrapped = true
+entersoundid.Name = "entersoundid"
+entersoundid.Parent = MusicList
+entersoundid.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+entersoundid.BorderColor3 = Color3.fromRGB(0, 0, 0)
+entersoundid.BorderSizePixel = 0
+entersoundid.Position = UDim2.new(0.0217391308, 0, 0.402010053, 0)
+entersoundid.Size = UDim2.new(0, 457, 0, 75)
+entersoundid.Font = Enum.Font.SourceSans
+entersoundid.PlaceholderText = "Enter Sound id"
+entersoundid.Text = ""
+entersoundid.TextColor3 = Color3.fromRGB(255, 255, 255)
+entersoundid.TextScaled = true
+entersoundid.TextSize = 14.000
+entersoundid.TextWrapped = true
 
 UICorner1.Name = "UICorner1"
-UICorner1.Parent = Badapple
+UICorner1.Parent = entersoundid
+
+Musicvalidater.Name = "Musicvalidater"
+Musicvalidater.Parent = MusicList
+Musicvalidater.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Musicvalidater.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Musicvalidater.BorderSizePixel = 0
+Musicvalidater.Position = UDim2.new(0.873188376, 0, 0.44723618, 0)
+Musicvalidater.Size = UDim2.new(0, 56, 0, 56)
+
+UICorner2.CornerRadius = UDim.new(1, 0)
+UICorner2.Name = "UICorner2"
+UICorner2.Parent = Musicvalidater
+
+PlayMusic.Name = "PlayMusic"
+PlayMusic.Parent = MusicList
+PlayMusic.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+PlayMusic.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PlayMusic.BorderSizePixel = 0
+PlayMusic.Position = UDim2.new(0.0217391308, 0, 0.824120581, 0)
+PlayMusic.Size = UDim2.new(0, 121, 0, 27)
+PlayMusic.Font = Enum.Font.SourceSans
+PlayMusic.Text = "Play"
+PlayMusic.TextColor3 = Color3.fromRGB(0, 255, 0)
+PlayMusic.TextScaled = true
+PlayMusic.TextSize = 14.000
+PlayMusic.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+PlayMusic.TextWrapped = true
+
+UICorner2_2.Name = "UICorner2"
+UICorner2_2.Parent = PlayMusic
+
+StopMusic.Name = "StopMusic"
+StopMusic.Parent = MusicList
+StopMusic.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+StopMusic.BorderColor3 = Color3.fromRGB(0, 0, 0)
+StopMusic.BorderSizePixel = 0
+StopMusic.Position = UDim2.new(0.324275464, 0, 0.824120581, 0)
+StopMusic.Size = UDim2.new(0, 121, 0, 27)
+StopMusic.Font = Enum.Font.SourceSans
+StopMusic.Text = "Stop"
+StopMusic.TextColor3 = Color3.fromRGB(255, 0, 4)
+StopMusic.TextScaled = true
+StopMusic.TextSize = 14.000
+StopMusic.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+StopMusic.TextWrapped = true
+
+UICorner2_3.Name = "UICorner2"
+UICorner2_3.Parent = StopMusic
 
 -- Scripts:
 
-local function QKVPI_fake_script() -- MainFrame.dragdelay 
+local function HXIG_fake_script() -- MainFrame.dragdelay 
 	local script = Instance.new('LocalScript', MainFrame)
 
 	local frame = script.Parent
@@ -364,8 +411,8 @@ local function QKVPI_fake_script() -- MainFrame.dragdelay
 	
 	
 end
-coroutine.wrap(QKVPI_fake_script)()
-local function UCHU_fake_script() -- MainFrame.toggle 
+coroutine.wrap(HXIG_fake_script)()
+local function GKUVXSU_fake_script() -- MainFrame.toggle 
 	local script = Instance.new('LocalScript', MainFrame)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -380,8 +427,8 @@ local function UCHU_fake_script() -- MainFrame.toggle
 	
 	
 end
-coroutine.wrap(UCHU_fake_script)()
-local function OMTUUFJ_fake_script() -- respawn.antistuck 
+coroutine.wrap(GKUVXSU_fake_script)()
+local function XZENI_fake_script() -- respawn.antistuck 
 	local script = Instance.new('LocalScript', respawn)
 
 	local button = script.Parent
@@ -429,8 +476,8 @@ local function OMTUUFJ_fake_script() -- respawn.antistuck
 	
 	
 end
-coroutine.wrap(OMTUUFJ_fake_script)()
-local function DYIHA_fake_script() -- fly.FlyButtonScript 
+coroutine.wrap(XZENI_fake_script)()
+local function KIELZMS_fake_script() -- fly.FlyButtonScript 
 	local script = Instance.new('LocalScript', fly)
 
 	local button = script.Parent
@@ -547,8 +594,8 @@ local function DYIHA_fake_script() -- fly.FlyButtonScript
 	
 	
 end
-coroutine.wrap(DYIHA_fake_script)()
-local function DPYR_fake_script() -- esp.espscript 
+coroutine.wrap(KIELZMS_fake_script)()
+local function DNPNT_fake_script() -- esp.espscript 
 	local script = Instance.new('LocalScript', esp)
 
 	local Players = game:GetService("Players")
@@ -606,8 +653,8 @@ local function DPYR_fake_script() -- esp.espscript
 	
 	
 end
-coroutine.wrap(DPYR_fake_script)()
-local function MINP_fake_script() -- noclip.noclip.NoclipButtonScript 
+coroutine.wrap(DNPNT_fake_script)()
+local function HXMWGX_fake_script() -- noclip.noclip.NoclipButtonScript 
 	local script = Instance.new('LocalScript', noclip)
 
 	local button = script.Parent
@@ -640,8 +687,8 @@ local function MINP_fake_script() -- noclip.noclip.NoclipButtonScript
 	
 	
 end
-coroutine.wrap(MINP_fake_script)()
-local function DPRST_fake_script() -- Donate.DonateScript 
+coroutine.wrap(HXMWGX_fake_script)()
+local function MASIWLD_fake_script() -- Donate.DonateScript 
 	local script = Instance.new('LocalScript', Donate)
 
 	local Players = game:GetService("Players")
@@ -680,64 +727,8 @@ local function DPRST_fake_script() -- Donate.DonateScript
 		end
 	end)
 end
-coroutine.wrap(DPRST_fake_script)()
-local function OHGFZA_fake_script() -- MusicPlayer.noclip.NoclipButtonScript 
-	local script = Instance.new('LocalScript', MusicPlayer)
-
-	local button = script.Parent
-	local Players = game:GetService("Players")
-	local noclipEnabled = false
-	
-	-- Helper function to set CanCollide for all parts in character
-	local function setNoclip(character, enabled)
-	    for _, part in character:GetChildren() do
-	        if part:IsA("BasePart") then
-	            part.CanCollide = not enabled
-	        end
-	    end
-	end
-	
-	-- Toggle noclip state
-	local function toggleNoclip()
-	    local player = Players.LocalPlayer
-	    local character = player.Character or player.CharacterAdded:Wait()
-	    noclipEnabled = not noclipEnabled
-	    setNoclip(character, noclipEnabled)
-	end
-	
-	-- Reapply correct CanCollide on respawn
-	Players.LocalPlayer.CharacterAdded:Connect(function(character)
-	    setNoclip(character, noclipEnabled)
-	end)
-	
-	button.MouseButton1Click:Connect(toggleNoclip)
-	
-	
-end
-coroutine.wrap(OHGFZA_fake_script)()
-local function FRNHQ_fake_script() -- MusicPlayer.MusicToggleScript 
-	local script = Instance.new('LocalScript', MusicPlayer)
-
-	-- Script to toggle MusicList visibility when MusicPlayer button is pressed
-	
-	local Players = game:GetService("Players")
-	local player = Players.LocalPlayer
-	local playerGui = player:WaitForChild("PlayerGui")
-	
-	-- Wait for the UI to load
-	local adminUiV3 = playerGui:WaitForChild("AdminUiV3")
-	local musicList = adminUiV3:WaitForChild("MusicList")
-	
-	-- This script is inside the MusicPlayer ImageButton
-	local musicPlayerButton = script.Parent
-	
-	-- Toggle MusicList visibility when button is pressed
-	musicPlayerButton.MouseButton1Click:Connect(function()
-	    musicList.Visible = not musicList.Visible
-	end)
-end
-coroutine.wrap(FRNHQ_fake_script)()
-local function XVLL_fake_script() -- current_time.timescript 
+coroutine.wrap(MASIWLD_fake_script)()
+local function VWPWHYN_fake_script() -- current_time.timescript 
 	local script = Instance.new('LocalScript', current_time)
 
 	local currentTimeLabel = script.Parent
@@ -769,8 +760,8 @@ local function XVLL_fake_script() -- current_time.timescript
 	
 	
 end
-coroutine.wrap(XVLL_fake_script)()
-local function YVPA_fake_script() -- tipframe.tipscript1 
+coroutine.wrap(VWPWHYN_fake_script)()
+local function JJZIOQM_fake_script() -- tipframe.tipscript1 
 	local script = Instance.new('LocalScript', tipframe)
 
 	local tipframe = script.Parent
@@ -780,8 +771,8 @@ local function YVPA_fake_script() -- tipframe.tipscript1
 	
 	
 end
-coroutine.wrap(YVPA_fake_script)()
-local function JKXUN_fake_script() -- tip.tipscript 
+coroutine.wrap(JJZIOQM_fake_script)()
+local function WCTN_fake_script() -- tip.tipscript 
 	local script = Instance.new('LocalScript', tip)
 
 	local tip = script.Parent
@@ -791,56 +782,202 @@ local function JKXUN_fake_script() -- tip.tipscript
 	
 	
 end
-coroutine.wrap(JKXUN_fake_script)()
-local function UGTE_fake_script() -- Badapple.BadAppleMusicScript 
-	local script = Instance.new('LocalScript', Badapple)
+coroutine.wrap(WCTN_fake_script)()
+local function YJEMIB_fake_script() -- MusicList.dragdelay1 
+	local script = Instance.new('LocalScript', MusicList)
 
-	-- Script to play Bad Apple song when button is pressed
+	local frame = script.Parent
+	local UserInputService = game:GetService("UserInputService")
+	local TweenService = game:GetService("TweenService")
 	
+	local dragging = false
+	local dragStart = nil
+	local startPos = nil
+	local dragDelayActive = false
+	local dragTween = nil
+	
+	local function update(input)
+	    if not dragging then return end
+	    local delta = input.Position - dragStart
+	    local targetPos = UDim2.new(
+	        startPos.X.Scale,
+	        startPos.X.Offset + delta.X,
+	        startPos.Y.Scale,
+	        startPos.Y.Offset + delta.Y
+	    )
+	    if dragTween then
+	        dragTween:Cancel()
+	    end
+	    dragTween = TweenService:Create(frame, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = targetPos})
+	    dragTween:Play()
+	end
+	
+	frame.InputBegan:Connect(function(input)
+	    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+	        if not dragging and not dragDelayActive then
+	            dragDelayActive = true
+	            dragStart = input.Position
+	            startPos = frame.Position
+	            -- Wait for 0.5 seconds before starting drag
+	            task.wait(0.5)
+	            dragging = true
+	            dragDelayActive = false
+	        end
+	    end
+	end)
+	
+	frame.InputEnded:Connect(function(input)
+	    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+	        dragging = false
+	        dragDelayActive = false
+	        if dragTween then
+	            dragTween:Cancel()
+	            dragTween = nil
+	        end
+	    end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+	    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+	        update(input)
+	    end
+	end)
+	
+	
+end
+coroutine.wrap(YJEMIB_fake_script)()
+local function QNZNG_fake_script() -- MusicList.MusicPlayerScript 
+	local script = Instance.new('LocalScript', MusicList)
+
 	local Players = game:GetService("Players")
+	local SoundService = game:GetService("SoundService")
+	
 	local player = Players.LocalPlayer
 	local playerGui = player:WaitForChild("PlayerGui")
 	
-	-- Wait for the UI to load
-	local adminUiV3 = playerGui:WaitForChild("AdminUiV3")
-	local musicList = adminUiV3:WaitForChild("MusicList")
-	local scrollingFrame = musicList:WaitForChild("ScrollingFrame")
-	local badAppleButton = scrollingFrame:WaitForChild("Badapple")
+	-- Wait for the GUI to load
+	local adminUi = playerGui:WaitForChild("AdminUiV3")
+	local mainFrame = adminUi:WaitForChild("MainFrame")
+	local secondaryFrame = mainFrame:WaitForChild("Secondaryframe")
 	
-	-- This script is inside the BadApple TextButton
-	local button = script.Parent
+	-- Get UI elements
+	local musicPlayerButton = secondaryFrame:WaitForChild("MusicPlayer")
+	local musicList = adminUi:WaitForChild("MusicList")
+	local entersoundid = musicList:WaitForChild("entersoundid")
+	local musicvalidater = musicList:WaitForChild("Musicvalidater")
+	local playMusicButton = musicList:WaitForChild("PlayMusic")
+	local stopMusicButton = musicList:WaitForChild("StopMusic")
 	
-	-- Create a sound object to play the music
-	local sound = Instance.new("Sound")
-	sound.SoundId = "rbxassetid://71595636123360"
-	sound.Volume = 1
-	sound.Parent = game.Workspace
+	-- Track currently playing sounds
+	local playingSounds = {}
 	
-	-- Track if music is playing
-	local isPlaying = false
+	-- Toggle MusicList visibility when MusicPlayer button is clicked
+	musicPlayerButton.MouseButton1Click:Connect(function()
+	    local isVisible = musicList.Visible
+	    musicList.Visible = not isVisible
+	    
+	    -- Make all children visible when MusicList is shown
+	    if musicList.Visible then
+	        for _, child in ipairs(musicList:GetDescendants()) do
+	            if child:IsA("TextLabel") or child:IsA("TextButton") or child:IsA("Frame") or child:IsA("ImageButton") or child:IsA("ImageLabel") then
+	                child.Visible = true
+	            end
+	        end
+	    end
+	end)
 	
-	button.MouseButton1Click:Connect(function()
-	    if not isPlaying then
-	        -- Start playing the music
-	        isPlaying = true
-	        sound:Play()
-	        button.Text = "Playing..."
-	        button.BackgroundColor3 = Color3.fromRGB(50, 150, 50) -- Green to indicate playing
-	        
-	        -- Wait until the song ends
-	        sound.Ended:Wait()
-	        
-	        -- Reset button state when song ends
-	        isPlaying = false
-	        button.Text = "Bad Apple"
-	        button.BackgroundColor3 = Color3.fromRGB(48, 48, 48) -- Original dark gray color
+	-- Validate sound ID when text changes
+	entersoundid:GetPropertyChangedSignal("Text"):Connect(function()
+	    local soundId = entersoundid.Text
+	    
+	    -- Skip if empty
+	    if soundId == "" then
+	        musicvalidater.BackgroundColor3 = Color3.fromRGB(128, 128, 128) -- Gray for neutral
+	        return
+	    end
+	    
+	    -- Create a temporary sound to validate
+	    local testSound = Instance.new("Sound")
+	    testSound.SoundId = "rbxassetid://" .. soundId
+	    testSound.Parent = SoundService
+	    
+	    -- Wait a moment for the sound to load
+	    task.wait(0.5)
+	    
+	    -- Check if the sound is valid by checking if it loaded properly
+	    local success, length = pcall(function()
+	        return testSound.TimeLength
+	    end)
+	    
+	    if success and length > 0 then
+	        musicvalidater.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Green for valid
 	    else
-	        -- Stop the music if clicked while playing
+	        -- Give it another chance to load
+	        task.wait(1)
+	        success, length = pcall(function()
+	            return testSound.TimeLength
+	        end)
+	        
+	        if success and length > 0 then
+	            musicvalidater.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Green for valid
+	        else
+	            musicvalidater.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Red for invalid
+	        end
+	    end
+	    
+	    -- Clean up test sound
+	    testSound:Destroy()
+	end)
+	
+	-- Play music when PlayMusic button is clicked
+	playMusicButton.MouseButton1Click:Connect(function()
+	    local soundId = entersoundid.Text
+	    
+	    if soundId == "" then
+	        return
+	    end
+	    
+	    -- Create and play the sound
+	    local sound = Instance.new("Sound")
+	    sound.SoundId = "rbxassetid://" .. soundId
+	    sound.Looped = false
+	    sound.Volume = 1
+	    sound.Parent = SoundService
+	    
+	    -- Track this sound
+	    table.insert(playingSounds, sound)
+	    
+	    -- Play the sound
+	    sound:Play()
+	    
+	    -- Remove from tracking when sound ends
+	    sound.Ended:Connect(function()
+	        for i, s in ipairs(playingSounds) do
+	            if s == sound then
+	                table.remove(playingSounds, i)
+	                break
+	            end
+	        end
+	        sound:Destroy()
+	    end)
+	end)
+	
+	-- Stop all music when StopMusic button is clicked
+	stopMusicButton.MouseButton1Click:Connect(function()
+	    -- Stop and destroy all tracked sounds
+	    for i, sound in ipairs(playingSounds) do
 	        sound:Stop()
-	        isPlaying = false
-	        button.Text = "Bad Apple"
-	        button.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+	        sound:Destroy()
+	    end
+	    playingSounds = {}
+	    
+	    -- Also stop any other sounds in SoundService
+	    for _, sound in ipairs(SoundService:GetChildren()) do
+	        if sound:IsA("Sound") then
+	            sound:Stop()
+	            sound:Destroy()
+	        end
 	    end
 	end)
 end
-coroutine.wrap(UGTE_fake_script)()
+coroutine.wrap(QNZNG_fake_script)()
