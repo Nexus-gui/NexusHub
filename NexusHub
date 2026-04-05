@@ -1,5 +1,5 @@
--- Gui to Lua
--- Version: 3.2
+-- NexusHub
+-- Version: 0.2
 
 -- Instances:
 
@@ -17,10 +17,27 @@ local esp = Instance.new("ImageButton")
 local UICorner_5 = Instance.new("UICorner")
 local noclip = Instance.new("ImageButton")
 local UICorner_6 = Instance.new("UICorner")
+local Donate = Instance.new("ImageButton")
+local UICorner_7 = Instance.new("UICorner")
+local MusicPlayer = Instance.new("ImageButton")
+local UICorner_8 = Instance.new("UICorner")
 local UIname = Instance.new("TextLabel")
 local credits = Instance.new("TextLabel")
 local current_time = Instance.new("TextLabel")
+local tipframe = Instance.new("Frame")
+local UICorner_9 = Instance.new("UICorner")
 local tip = Instance.new("TextLabel")
+local Donationtip = Instance.new("Frame")
+local UICorner_10 = Instance.new("UICorner")
+local donationtiplable = Instance.new("TextLabel")
+local MusicList = Instance.new("Frame")
+local UICorner_11 = Instance.new("UICorner")
+local MusicPlayerLabel = Instance.new("Frame")
+local UICorner_12 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local Badapple = Instance.new("TextButton")
+local UICorner1 = Instance.new("UICorner")
 
 --Properties:
 
@@ -33,8 +50,8 @@ MainFrame.Parent = AdminUiV3
 MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MainFrame.BorderSizePixel = 0
-MainFrame.Position = UDim2.new(0.229657352, 0, 0.125720873, 0)
-MainFrame.Size = UDim2.new(0, 707, 0, 453)
+MainFrame.Position = UDim2.new(0.268371254, 0, 0.226659849, 0)
+MainFrame.Size = UDim2.new(0, 706, 0, 464)
 MainFrame.Visible = false
 
 UICorner.Parent = MainFrame
@@ -61,7 +78,7 @@ respawn.BorderColor3 = Color3.fromRGB(0, 0, 0)
 respawn.BorderSizePixel = 0
 respawn.Position = UDim2.new(0.0124869924, 0, 0.0254545454, 0)
 respawn.Size = UDim2.new(0, 74, 0, 78)
-respawn.Image = "rbxassetid://9483381623"
+respawn.Image = "rbxassetid://9562514785"
 
 UICorner_3.Parent = respawn
 
@@ -101,14 +118,38 @@ noclip.Image = "rbxassetid://9525535512"
 
 UICorner_6.Parent = noclip
 
+Donate.Name = "Donate"
+Donate.Parent = Secondaryframe
+Donate.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Donate.BackgroundTransparency = 1.000
+Donate.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Donate.BorderSizePixel = 0
+Donate.Position = UDim2.new(0.0109989531, 0, 0.781298697, 0)
+Donate.Size = UDim2.new(0, 74, 0, 78)
+Donate.Image = "rbxassetid://11713337390"
+
+UICorner_7.Parent = Donate
+
+MusicPlayer.Name = "MusicPlayer"
+MusicPlayer.Parent = Secondaryframe
+MusicPlayer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MusicPlayer.BackgroundTransparency = 1.000
+MusicPlayer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MusicPlayer.BorderSizePixel = 0
+MusicPlayer.Position = UDim2.new(0.515463233, 0, 0.0254545528, 0)
+MusicPlayer.Size = UDim2.new(0, 74, 0, 78)
+MusicPlayer.Image = "rbxassetid://133565608904662"
+
+UICorner_8.Parent = MusicPlayer
+
 UIname.Name = "UIname"
 UIname.Parent = MainFrame
 UIname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 UIname.BackgroundTransparency = 1.000
 UIname.BorderColor3 = Color3.fromRGB(0, 0, 0)
 UIname.BorderSizePixel = 0
-UIname.Position = UDim2.new(0.267468065, 0, 0.0138888666, 0)
-UIname.Size = UDim2.new(0, 324, 0, 35)
+UIname.Position = UDim2.new(0.260385841, 0, 0.0138888853, 0)
+UIname.Size = UDim2.new(0, 499, 0, 46)
 UIname.Font = Enum.Font.Michroma
 UIname.Text = "N  e  x  u  s       H  u  b"
 UIname.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -123,7 +164,7 @@ credits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 credits.BackgroundTransparency = 1.000
 credits.BorderColor3 = Color3.fromRGB(0, 0, 0)
 credits.BorderSizePixel = 0
-credits.Position = UDim2.new(0.627581179, 0, 0.0701291934, 0)
+credits.Position = UDim2.new(0.289533049, 0, 0.944563091, 0)
 credits.Size = UDim2.new(0, 296, 0, 35)
 credits.Font = Enum.Font.Michroma
 credits.Text = "Made by NexusHubTeam"
@@ -138,7 +179,7 @@ current_time.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 current_time.BackgroundTransparency = 1.000
 current_time.BorderColor3 = Color3.fromRGB(0, 0, 0)
 current_time.BorderSizePixel = 0
-current_time.Position = UDim2.new(0.023762377, 0, 0.013888889, 0)
+current_time.Position = UDim2.new(0.0322609693, 0, 0.0246647466, 0)
 current_time.Size = UDim2.new(0, 161, 0, 35)
 current_time.Font = Enum.Font.SourceSans
 current_time.Text = "12:00"
@@ -147,26 +188,200 @@ current_time.TextScaled = true
 current_time.TextSize = 14.000
 current_time.TextWrapped = true
 
+tipframe.Name = "tipframe"
+tipframe.Parent = AdminUiV3
+tipframe.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+tipframe.BorderColor3 = Color3.fromRGB(0, 0, 0)
+tipframe.BorderSizePixel = 0
+tipframe.Position = UDim2.new(0.309888959, 0, 0.436317772, 0)
+tipframe.Size = UDim2.new(0, 719, 0, 100)
+tipframe.Visible = false
+
+UICorner_9.Parent = tipframe
+
 tip.Name = "tip"
-tip.Parent = AdminUiV3
+tip.Parent = tipframe
 tip.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tip.BackgroundTransparency = 1.000
 tip.BorderColor3 = Color3.fromRGB(0, 0, 0)
 tip.BorderSizePixel = 0
-tip.Position = UDim2.new(0.060079053, 0, 0.404702961, 0)
-tip.Size = UDim2.new(0, 1132, 0, 50)
+tip.Position = UDim2.new(-0.00026400463, 0, 0.179016411, 0)
+tip.Size = UDim2.new(0, 719, 0, 64)
 tip.Font = Enum.Font.SourceSans
-tip.Text = "Press K to close/open the ui"
-tip.TextColor3 = Color3.fromRGB(0, 0, 0)
+tip.Text = "K to toggle the menu"
+tip.TextColor3 = Color3.fromRGB(255, 255, 255)
 tip.TextScaled = true
 tip.TextSize = 14.000
-tip.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
-tip.TextStrokeTransparency = 0.000
 tip.TextWrapped = true
+
+Donationtip.Name = "Donationtip"
+Donationtip.Parent = AdminUiV3
+Donationtip.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Donationtip.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Donationtip.BorderSizePixel = 0
+Donationtip.Position = UDim2.new(0.307212293, 0, 0.786885262, 0)
+Donationtip.Size = UDim2.new(0, 719, 0, 100)
+Donationtip.Visible = false
+
+UICorner_10.Parent = Donationtip
+
+donationtiplable.Name = "donationtiplable"
+donationtiplable.Parent = Donationtip
+donationtiplable.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+donationtiplable.BackgroundTransparency = 1.000
+donationtiplable.BorderColor3 = Color3.fromRGB(0, 0, 0)
+donationtiplable.BorderSizePixel = 0
+donationtiplable.Position = UDim2.new(-0.00026400463, 0, 0.179016411, 0)
+donationtiplable.Size = UDim2.new(0, 719, 0, 64)
+donationtiplable.Font = Enum.Font.SourceSans
+donationtiplable.Text = "Remember: Nexus Hub will always be free but donations help to pay the developers"
+donationtiplable.TextColor3 = Color3.fromRGB(255, 255, 255)
+donationtiplable.TextScaled = true
+donationtiplable.TextSize = 14.000
+donationtiplable.TextWrapped = true
+
+MusicList.Name = "MusicList"
+MusicList.Parent = AdminUiV3
+MusicList.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MusicList.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MusicList.BorderSizePixel = 0
+MusicList.Position = UDim2.new(0.134835422, 0, 0.203551963, 0)
+MusicList.Size = UDim2.new(0, 435, 0, 505)
+MusicList.Visible = false
+
+UICorner_11.Parent = MusicList
+
+MusicPlayerLabel.Name = "MusicPlayerLabel"
+MusicPlayerLabel.Parent = MusicList
+MusicPlayerLabel.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MusicPlayerLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MusicPlayerLabel.BorderSizePixel = 0
+MusicPlayerLabel.Position = UDim2.new(-0.00079668418, 0, -0.00040851254, 0)
+MusicPlayerLabel.Size = UDim2.new(0, 435, 0, 99)
+
+UICorner_12.Parent = MusicPlayerLabel
+
+TextLabel.Parent = MusicPlayerLabel
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.LayoutOrder = 1
+TextLabel.Size = UDim2.new(0, 435, 0, 99)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Music Player (WIP)"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+ScrollingFrame.Parent = MusicList
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ScrollingFrame.BackgroundTransparency = 1.000
+ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.Position = UDim2.new(-0.00229885057, 0, 0.194059402, 0)
+ScrollingFrame.Size = UDim2.new(0, 436, 0, 407)
+
+Badapple.Name = "Badapple"
+Badapple.Parent = ScrollingFrame
+Badapple.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+Badapple.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Badapple.BorderSizePixel = 0
+Badapple.Position = UDim2.new(0.0756880715, 0, 0.0188118815, 0)
+Badapple.Size = UDim2.new(0, 355, 0, 69)
+Badapple.Font = Enum.Font.SourceSans
+Badapple.Text = "Bad Apple"
+Badapple.TextColor3 = Color3.fromRGB(255, 255, 255)
+Badapple.TextScaled = true
+Badapple.TextSize = 14.000
+Badapple.TextWrapped = true
+
+UICorner1.Name = "UICorner1"
+UICorner1.Parent = Badapple
 
 -- Scripts:
 
-local function CVJQJT_fake_script() -- respawn.antistuck 
+local function QKVPI_fake_script() -- MainFrame.dragdelay 
+	local script = Instance.new('LocalScript', MainFrame)
+
+	local frame = script.Parent
+	local UserInputService = game:GetService("UserInputService")
+	local TweenService = game:GetService("TweenService")
+	
+	local dragging = false
+	local dragStart = nil
+	local startPos = nil
+	local dragDelayActive = false
+	local dragTween = nil
+	
+	local function update(input)
+	    if not dragging then return end
+	    local delta = input.Position - dragStart
+	    local targetPos = UDim2.new(
+	        startPos.X.Scale,
+	        startPos.X.Offset + delta.X,
+	        startPos.Y.Scale,
+	        startPos.Y.Offset + delta.Y
+	    )
+	    if dragTween then
+	        dragTween:Cancel()
+	    end
+	    dragTween = TweenService:Create(frame, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = targetPos})
+	    dragTween:Play()
+	end
+	
+	frame.InputBegan:Connect(function(input)
+	    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+	        if not dragging and not dragDelayActive then
+	            dragDelayActive = true
+	            dragStart = input.Position
+	            startPos = frame.Position
+	            -- Wait for 0.5 seconds before starting drag
+	            task.wait(0.5)
+	            dragging = true
+	            dragDelayActive = false
+	        end
+	    end
+	end)
+	
+	frame.InputEnded:Connect(function(input)
+	    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+	        dragging = false
+	        dragDelayActive = false
+	        if dragTween then
+	            dragTween:Cancel()
+	            dragTween = nil
+	        end
+	    end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+	    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+	        update(input)
+	    end
+	end)
+	
+	
+end
+coroutine.wrap(QKVPI_fake_script)()
+local function UCHU_fake_script() -- MainFrame.toggle 
+	local script = Instance.new('LocalScript', MainFrame)
+
+	local UserInputService = game:GetService("UserInputService")
+	local mainFrame = script.Parent
+	
+	UserInputService.InputBegan:Connect(function(input, gameProcessed)
+	    if gameProcessed then return end
+	    if input.KeyCode == Enum.KeyCode.K then
+	        mainFrame.Visible = not mainFrame.Visible
+	    end
+	end)
+	
+	
+end
+coroutine.wrap(UCHU_fake_script)()
+local function OMTUUFJ_fake_script() -- respawn.antistuck 
 	local script = Instance.new('LocalScript', respawn)
 
 	local button = script.Parent
@@ -214,8 +429,8 @@ local function CVJQJT_fake_script() -- respawn.antistuck
 	
 	
 end
-coroutine.wrap(CVJQJT_fake_script)()
-local function FUKACB_fake_script() -- fly.FlyButtonScript 
+coroutine.wrap(OMTUUFJ_fake_script)()
+local function DYIHA_fake_script() -- fly.FlyButtonScript 
 	local script = Instance.new('LocalScript', fly)
 
 	local button = script.Parent
@@ -332,8 +547,8 @@ local function FUKACB_fake_script() -- fly.FlyButtonScript
 	
 	
 end
-coroutine.wrap(FUKACB_fake_script)()
-local function FGKV_fake_script() -- esp.espscript 
+coroutine.wrap(DYIHA_fake_script)()
+local function DPYR_fake_script() -- esp.espscript 
 	local script = Instance.new('LocalScript', esp)
 
 	local Players = game:GetService("Players")
@@ -391,8 +606,8 @@ local function FGKV_fake_script() -- esp.espscript
 	
 	
 end
-coroutine.wrap(FGKV_fake_script)()
-local function XKNPP_fake_script() -- noclip.noclip.NoclipButtonScript 
+coroutine.wrap(DPYR_fake_script)()
+local function MINP_fake_script() -- noclip.noclip.NoclipButtonScript 
 	local script = Instance.new('LocalScript', noclip)
 
 	local button = script.Parent
@@ -425,8 +640,104 @@ local function XKNPP_fake_script() -- noclip.noclip.NoclipButtonScript
 	
 	
 end
-coroutine.wrap(XKNPP_fake_script)()
-local function JTJOXPM_fake_script() -- current_time.timescript 
+coroutine.wrap(MINP_fake_script)()
+local function DPRST_fake_script() -- Donate.DonateScript 
+	local script = Instance.new('LocalScript', Donate)
+
+	local Players = game:GetService("Players")
+	local MarketplaceService = game:GetService("MarketplaceService")
+	local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
+	
+	local button = script.Parent
+	local productId = 3570398924
+	
+	-- Find the Donationtip frame
+	local donationTip = PlayerGui:FindFirstChild("AdminUiV3", true)
+	if donationTip then
+		donationTip = donationTip:FindFirstChild("Donationtip")
+	end
+	
+	button.MouseButton1Click:Connect(function()
+		-- Prompt the developer product purchase
+		MarketplaceService:PromptProductPurchase(Players.LocalPlayer, productId)
+		
+		-- Show the DonationTip frame and label
+		if donationTip then
+			donationTip.Visible = true
+			
+			local donationTipLabel = donationTip:FindFirstChild("donationtiplable")
+			if donationTipLabel then
+				donationTipLabel.Visible = true
+			end
+			
+			-- Hide both after 5 seconds
+			task.delay(10, function()
+				donationTip.Visible = false
+				if donationTipLabel then
+					donationTipLabel.Visible = false
+				end
+			end)
+		end
+	end)
+end
+coroutine.wrap(DPRST_fake_script)()
+local function OHGFZA_fake_script() -- MusicPlayer.noclip.NoclipButtonScript 
+	local script = Instance.new('LocalScript', MusicPlayer)
+
+	local button = script.Parent
+	local Players = game:GetService("Players")
+	local noclipEnabled = false
+	
+	-- Helper function to set CanCollide for all parts in character
+	local function setNoclip(character, enabled)
+	    for _, part in character:GetChildren() do
+	        if part:IsA("BasePart") then
+	            part.CanCollide = not enabled
+	        end
+	    end
+	end
+	
+	-- Toggle noclip state
+	local function toggleNoclip()
+	    local player = Players.LocalPlayer
+	    local character = player.Character or player.CharacterAdded:Wait()
+	    noclipEnabled = not noclipEnabled
+	    setNoclip(character, noclipEnabled)
+	end
+	
+	-- Reapply correct CanCollide on respawn
+	Players.LocalPlayer.CharacterAdded:Connect(function(character)
+	    setNoclip(character, noclipEnabled)
+	end)
+	
+	button.MouseButton1Click:Connect(toggleNoclip)
+	
+	
+end
+coroutine.wrap(OHGFZA_fake_script)()
+local function FRNHQ_fake_script() -- MusicPlayer.MusicToggleScript 
+	local script = Instance.new('LocalScript', MusicPlayer)
+
+	-- Script to toggle MusicList visibility when MusicPlayer button is pressed
+	
+	local Players = game:GetService("Players")
+	local player = Players.LocalPlayer
+	local playerGui = player:WaitForChild("PlayerGui")
+	
+	-- Wait for the UI to load
+	local adminUiV3 = playerGui:WaitForChild("AdminUiV3")
+	local musicList = adminUiV3:WaitForChild("MusicList")
+	
+	-- This script is inside the MusicPlayer ImageButton
+	local musicPlayerButton = script.Parent
+	
+	-- Toggle MusicList visibility when button is pressed
+	musicPlayerButton.MouseButton1Click:Connect(function()
+	    musicList.Visible = not musicList.Visible
+	end)
+end
+coroutine.wrap(FRNHQ_fake_script)()
+local function XVLL_fake_script() -- current_time.timescript 
 	local script = Instance.new('LocalScript', current_time)
 
 	local currentTimeLabel = script.Parent
@@ -458,87 +769,19 @@ local function JTJOXPM_fake_script() -- current_time.timescript
 	
 	
 end
-coroutine.wrap(JTJOXPM_fake_script)()
-local function HSZHHYP_fake_script() -- MainFrame.dragdelay 
-	local script = Instance.new('LocalScript', MainFrame)
+coroutine.wrap(XVLL_fake_script)()
+local function YVPA_fake_script() -- tipframe.tipscript1 
+	local script = Instance.new('LocalScript', tipframe)
 
-	local frame = script.Parent
-	local UserInputService = game:GetService("UserInputService")
-	local TweenService = game:GetService("TweenService")
-	
-	local dragging = false
-	local dragStart = nil
-	local startPos = nil
-	local dragDelayActive = false
-	local dragTween = nil
-	
-	local function update(input)
-	    if not dragging then return end
-	    local delta = input.Position - dragStart
-	    local targetPos = UDim2.new(
-	        startPos.X.Scale,
-	        startPos.X.Offset + delta.X,
-	        startPos.Y.Scale,
-	        startPos.Y.Offset + delta.Y
-	    )
-	    if dragTween then
-	        dragTween:Cancel()
-	    end
-	    dragTween = TweenService:Create(frame, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = targetPos})
-	    dragTween:Play()
-	end
-	
-	frame.InputBegan:Connect(function(input)
-	    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-	        if not dragging and not dragDelayActive then
-	            dragDelayActive = true
-	            dragStart = input.Position
-	            startPos = frame.Position
-	            -- Wait for 0.5 seconds before starting drag
-	            task.wait(0.5)
-	            dragging = true
-	            dragDelayActive = false
-	        end
-	    end
-	end)
-	
-	frame.InputEnded:Connect(function(input)
-	    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-	        dragging = false
-	        dragDelayActive = false
-	        if dragTween then
-	            dragTween:Cancel()
-	            dragTween = nil
-	        end
-	    end
-	end)
-	
-	UserInputService.InputChanged:Connect(function(input)
-	    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-	        update(input)
-	    end
-	end)
+	local tipframe = script.Parent
+	tipframe.Visible = true
+	task.wait(5)
+	tipframe.Visible = false
 	
 	
 end
-coroutine.wrap(HSZHHYP_fake_script)()
-local function WZENJK_fake_script() -- MainFrame.toggle 
-	local script = Instance.new('LocalScript', MainFrame)
-
-	local UserInputService = game:GetService("UserInputService")
-	local mainFrame = script.Parent
-	
-	UserInputService.InputBegan:Connect(function(input, gameProcessed)
-	    if gameProcessed then return end
-	    if input.KeyCode == Enum.KeyCode.K then
-	        mainFrame.Visible = not mainFrame.Visible
-	    end
-	end)
-	
-	
-end
-coroutine.wrap(WZENJK_fake_script)()
-local function XKLT_fake_script() -- tip.tipscript 
+coroutine.wrap(YVPA_fake_script)()
+local function JKXUN_fake_script() -- tip.tipscript 
 	local script = Instance.new('LocalScript', tip)
 
 	local tip = script.Parent
@@ -548,4 +791,56 @@ local function XKLT_fake_script() -- tip.tipscript
 	
 	
 end
-coroutine.wrap(XKLT_fake_script)()
+coroutine.wrap(JKXUN_fake_script)()
+local function UGTE_fake_script() -- Badapple.BadAppleMusicScript 
+	local script = Instance.new('LocalScript', Badapple)
+
+	-- Script to play Bad Apple song when button is pressed
+	
+	local Players = game:GetService("Players")
+	local player = Players.LocalPlayer
+	local playerGui = player:WaitForChild("PlayerGui")
+	
+	-- Wait for the UI to load
+	local adminUiV3 = playerGui:WaitForChild("AdminUiV3")
+	local musicList = adminUiV3:WaitForChild("MusicList")
+	local scrollingFrame = musicList:WaitForChild("ScrollingFrame")
+	local badAppleButton = scrollingFrame:WaitForChild("Badapple")
+	
+	-- This script is inside the BadApple TextButton
+	local button = script.Parent
+	
+	-- Create a sound object to play the music
+	local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://71595636123360"
+	sound.Volume = 1
+	sound.Parent = game.Workspace
+	
+	-- Track if music is playing
+	local isPlaying = false
+	
+	button.MouseButton1Click:Connect(function()
+	    if not isPlaying then
+	        -- Start playing the music
+	        isPlaying = true
+	        sound:Play()
+	        button.Text = "Playing..."
+	        button.BackgroundColor3 = Color3.fromRGB(50, 150, 50) -- Green to indicate playing
+	        
+	        -- Wait until the song ends
+	        sound.Ended:Wait()
+	        
+	        -- Reset button state when song ends
+	        isPlaying = false
+	        button.Text = "Bad Apple"
+	        button.BackgroundColor3 = Color3.fromRGB(48, 48, 48) -- Original dark gray color
+	    else
+	        -- Stop the music if clicked while playing
+	        sound:Stop()
+	        isPlaying = false
+	        button.Text = "Bad Apple"
+	        button.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+	    end
+	end)
+end
+coroutine.wrap(UGTE_fake_script)()
